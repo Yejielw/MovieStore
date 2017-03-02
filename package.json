@@ -1,0 +1,11 @@
+{
+  "name": "movie_app",
+  "version": "1.0.0",
+  "description": "A site to search and buy movies",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yejiel Wahnich",
+  "license": "ISC"
+}

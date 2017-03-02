@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" ng-app="MoviesSite">
+<head>
+
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
+   
+	<title>MovieAppStore</title>
+
+</head>
+
+<body >
+	
+	<div  class="container " ng-controller="mainCtrl">
+		<h1 class="jumbotron text-aling-center">Movies</h1>
+
+		<input class="form-control" type="text" ng-model="searchMovies" placeholder="Enter a movie you want to watch/buy">
+		<span><button class="btn btn-info" ng-click="moviesObj.search(searchMovies)">search</button></span>
+
+		</br>
+		</br>
+		<div class="container">
+			<ul>
+				<li ng-repeat="x in moviesObj.searched[0].results">
+					{{x.title}} - <button class="btn btn-primary"  ng-click="moviesObj.learn(x)">Learn More</button>
+				</li>
+			</ul>
+			
+		</div>
+			<div class="container col-md-offset-1">
+				<ol>
+					<li ng-repeat="x in moviesObj.list2">
+						{{x.title}} - {{x.overview}} <button  ng-click="moviesObj.add(x)">Add to your collection</button>
+					</li>
+				</ol>
+			</div>
+	</div>
+	<div  class="container" ng-controller="mainCtrl">
+		<h1 class="page-header text-aling-center">My Movies</h1>
+			<div class="container col-md-offset-1">
+				<ol>
+					<li ng-repeat="x in moviesObj.collection ">
+						{{x.title}} - <button class="btn btn-info" ng-click="moviesObj.remove(x)">Remove from your collection</button>
+					</li>
+				</ol>
+			</div>
+			<h1 ng-repeat="x in moviesObj.total">{{x}}</h1>
+
+	</div>
+
+	<script src="angular/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="model.js"></script>
+    <script type="text/javascript" src="controller.js"></script>
+
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
