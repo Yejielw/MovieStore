@@ -30,7 +30,11 @@
 			<div class="container col-md-offset-1">
 				<ol>
 					<li ng-repeat="x in moviesObj.list2">
-						{{x.title}} - {{x.overview}} <button  ng-click="moviesObj.add(x)">Add to your collection</button>
+
+						{{x.title}} - {{x.overview}} 
+						<img ng-src="https://image.tmdb.org/t/p/w500/{{x.poster_path}}">
+						<button  ng-click="moviesObj.add(x)">Add to your collection</button>
+
 					</li>
 				</ol>
 			</div>
