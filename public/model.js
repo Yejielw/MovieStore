@@ -8,9 +8,10 @@ app.factory('myModel', function($http) {
 	var urlKey = 'https://api.themoviedb.org/3/search/movie?api_key=bacd6ece685813c8f8b734ded38b8fa2&query=';
 	var learnUrl = 'https://api.themoviedb.org/3/movie/';
 	var learnKey = '?api_key=bacd6ece685813c8f8b734ded38b8fa2';
+	var imgUrl= 'https://image.tmdb.org/t/p/w500'
 
 	var addMovieUrl = function (text) {
-		var input = text
+	   var input = text
 	   input = input.replace(/ /g,'+');
 	   var urlFinal = urlKey.concat(input);
 
@@ -35,11 +36,21 @@ app.factory('myModel', function($http) {
 
     var learnMoreMovie = function(text) {
         var inputt = text.id;
-        
         var urlFinal1 = learnUrl.concat(inputt);
         var urlFinal2 = urlFinal1.concat(learnKey)
+        var img = text.poster_path
+        imgUrlFinal = imgUrl.concat(img)
         searchMovieInfo(urlFinal2);
+       // getImg(imgUrlFinal);
+
     };
+
+    /*var getImg = function () {
+    	$http.get(text).then(function(response) {
+
+        //learnMore.push(response.data);
+       });
+    }*/
 
 	var AddToCart = function (x) {
 		var tempVar = x ;
